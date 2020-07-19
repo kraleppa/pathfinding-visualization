@@ -7,23 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import pl.edu.agh.logic.board.Board;
+import pl.edu.agh.view.BoardScene;
 
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Label label = new Label("AlaMaKota");
-
-        TranslateTransition transition = new TranslateTransition();
-        transition.setDuration(Duration.seconds(3));
-        transition.setToX(500);
-        transition.setToY(500);
-        transition.setNode(label);
-        transition.play();
-
-        Pane pane = new Pane();
-        pane.getChildren().add(label);
-
-        Scene scene = new Scene(pane, 600, 600);
+        Scene scene = new BoardScene(new Pane(), 400, 400);
         stage.setScene(scene);
         stage.show();
     }
