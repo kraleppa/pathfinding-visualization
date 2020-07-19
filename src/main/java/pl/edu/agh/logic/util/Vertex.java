@@ -10,4 +10,9 @@ import lombok.Setter;
 @Getter
 public class Vertex {
     private final Vector2D position;
+
+    @Override
+    public String toString() {
+        return position.toString();
+    }
 }

@@ -25,6 +25,5 @@ public class Graph {
         Vertex mockVertex2 = new Vertex(position2);
 
         verticesMap.get(mockVertex1).add(mockVertex2);
-        verticesMap.get(mockVertex2).add(mockVertex1);
     }
 }

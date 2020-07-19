@@ -49,6 +49,6 @@ public class GraphTest {
 
         //then
         assertEquals(1, graph.getVerticesMap().get(new Vertex(position1)).size());
-        assertEquals(1, graph.getVerticesMap().get(new Vertex(position2)).size());
+        assertEquals(0, graph.getVerticesMap().get(new Vertex(position2)).size());
     }
 }
