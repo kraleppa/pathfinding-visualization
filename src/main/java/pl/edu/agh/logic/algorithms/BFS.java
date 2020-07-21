@@ -3,11 +3,8 @@ package pl.edu.agh.logic.algorithms;
 import pl.edu.agh.logic.util.Graph;
 import pl.edu.agh.logic.util.State;
 import pl.edu.agh.logic.util.Vertex;
-
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Set;
 
 public class BFS extends Algorithm{
     private final Graph graph;
@@ -19,21 +16,25 @@ public class BFS extends Algorithm{
         queue.add(start);
     }
 
-    public void startBFS(){
+    @Override
+    public void startAlgorithm() {
         while (!queue.isEmpty()){
             Vertex vertex = queue.poll();
 
             for (Vertex v : graph.getVerticesMap().get(vertex)) {
-                if (v.getState() == State.ACTIVE){
+                if (v.getState() == pl.edu.agh.logic.util.State.ACTIVE){
                     queue.add(v);
-                    v.setState(State.VISITED);
+                    v.setState(pl.edu.agh.logic.util.State.VISITED);
                 }
 
-
-
-                if (v.getState() == State.END){
+                if (v.getState() == pl.edu.agh.logic.util.State.END){
                     return;
                 }
+            }
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }

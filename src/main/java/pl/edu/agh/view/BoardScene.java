@@ -23,7 +23,7 @@ public class BoardScene extends Scene {
 
         this.start.setOnAction(actionEvent -> {
             BFS bfs = new BFS(board.getGraph());
-            bfs.startBFS();
+            bfs.start();
         });
 
         BoardBuilder boardBuilder = new StandardBoardBuilder(board);

@@ -14,7 +14,7 @@ public class Board {
     }
 
     public Board() {
-        this(10);
+        this(50);
     }
 
 //    public void constructGraph(){
