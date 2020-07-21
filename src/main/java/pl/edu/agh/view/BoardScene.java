@@ -1,19 +1,13 @@
 package pl.edu.agh.view;
 
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import pl.edu.agh.logic.board.Board;
 import pl.edu.agh.logic.board.builder.BoardBuilder;
 import pl.edu.agh.logic.board.builder.StandardBoardBuilder;
-import pl.edu.agh.logic.util.Vector2D;
-
-import java.util.HashMap;
-
-
-import java.util.Map;
 
 public class BoardScene extends Scene {
 
@@ -36,6 +30,7 @@ public class BoardScene extends Scene {
             grid.add(cell);
 
         });
+
         root.getChildren().addAll(grid);
     }
 }
