@@ -5,6 +5,8 @@ import lombok.Getter;
 import pl.edu.agh.logic.util.State;
 import pl.edu.agh.logic.util.Vertex;
 
+import java.util.Observer;
+
 @Getter
 public class Cell extends StackPane {
     private Vertex vertex;
@@ -12,6 +14,7 @@ public class Cell extends StackPane {
     public Cell(Vertex vertex) {
         super();
         this.vertex = vertex;
+        this.vertex.setCell(this);
 
         this.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
         this.setOpacity(0.9);
@@ -39,6 +42,11 @@ public class Cell extends StackPane {
         this.getStyleClass().clear();
         this.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
         this.vertex.setState(State.ACTIVE);
+    }
+
+    public void updateVisited(){
+        this.getStyleClass().clear();
+        this.setStyle("-fx-background-color: dodgerblue");
     }
 
 

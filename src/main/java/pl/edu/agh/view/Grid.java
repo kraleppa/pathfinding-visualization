@@ -1,6 +1,7 @@
 package pl.edu.agh.view;
 
 import javafx.scene.layout.Pane;
+import pl.edu.agh.logic.util.State;
 import pl.edu.agh.logic.util.Vector2D;
 
 import java.util.HashMap;
@@ -37,5 +38,13 @@ public class Grid extends Pane {
         cell.setPrefHeight(h);
 
         getChildren().add(cell);
+    }
+
+    public void refresh(){
+        this.cells.values().forEach((cell -> {
+            if (cell.getVertex().getState() == State.VISITED){
+                cell.updateVisited();
+            }
+        }));
     }
 }

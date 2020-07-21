@@ -10,6 +10,11 @@ import pl.edu.agh.logic.util.State;
 public class MouseGestures {
     //TO DO!
     private int doubleClickCount = 0;
+    private boolean canEdit;
+
+    public MouseGestures(boolean canEdit) {
+        this.canEdit = canEdit;
+    }
 
     public void makePaintable(Node node){
         node.setOnMousePressed(onMousePressedEventHandler);
@@ -17,6 +22,7 @@ public class MouseGestures {
 
     EventHandler<MouseEvent> onMousePressedEventHandler = event -> {
         Cell cell = (Cell) event.getSource();
+
         if(event.getButton().equals(MouseButton.PRIMARY)){
             if(event.getClickCount() == 2){
 

@@ -8,7 +8,7 @@ import java.util.*;
 @Getter
 @Setter
 public class Graph {
-    private final Map<Vertex, ArrayList<Object>> verticesMap = new HashMap<>();
+    private final Map<Vertex, ArrayList<Vertex>> verticesMap = new HashMap<>();
 
     public void addVertex(Vector2D position){
         verticesMap.putIfAbsent(new Vertex(position), new ArrayList<>());

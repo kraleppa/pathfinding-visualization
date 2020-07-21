@@ -4,5 +4,6 @@ public enum State {
     ACTIVE,
     INACTIVE,
     START,
-    END
+    END,
+    VISITED
 }

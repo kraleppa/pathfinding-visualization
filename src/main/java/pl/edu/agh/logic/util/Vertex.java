@@ -4,14 +4,25 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import pl.edu.agh.view.Cell;
 
 import java.util.Objects;
+import java.util.Observable;
 
 @Getter
-@Setter
 public class Vertex {
     private final Vector2D position;
+    private Cell cell;
     private State state;
+
+    public void setState(State state) {
+        this.state = state;
+        this.cell.updateVisited();
+    }
+
+    public void setCell(Cell cell) {
+        this.cell = cell;
+    }
 
     public Vertex(Vector2D position) {
         this.position = position;
