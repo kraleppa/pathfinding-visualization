@@ -14,19 +14,25 @@ public class Vertex {
     private final Vector2D position;
     private Cell cell;
     private State state;
+    private Vertex parent;
 
     public void setState(State state) {
         this.state = state;
         if (state == State.VISITED){
-            if (cell == null){
-                System.out.println("loool");
-            }
             this.cell.updateVisited();
+        }
+
+        if (state == State.PATH){
+            this.cell.updatePath();
         }
     }
 
     public void setCell(Cell cell) {
         this.cell = cell;
+    }
+
+    public void setParent(Vertex parent) {
+        this.parent = parent;
     }
 
     public Vertex(Vector2D position) {

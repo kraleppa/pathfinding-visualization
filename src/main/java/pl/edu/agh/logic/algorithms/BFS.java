@@ -1,7 +1,6 @@
 package pl.edu.agh.logic.algorithms;
 
 import pl.edu.agh.logic.util.Graph;
-import pl.edu.agh.logic.util.State;
 import pl.edu.agh.logic.util.Vertex;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -17,7 +16,7 @@ public class BFS extends Algorithm{
     }
 
     @Override
-    public void startAlgorithm() {
+    public boolean startAlgorithm() {
         while (!queue.isEmpty()){
             Vertex vertex = queue.poll();
 
@@ -25,10 +24,12 @@ public class BFS extends Algorithm{
                 if (v.getState() == pl.edu.agh.logic.util.State.ACTIVE){
                     queue.add(v);
                     v.setState(pl.edu.agh.logic.util.State.VISITED);
+                    v.setParent(vertex);
                 }
 
                 if (v.getState() == pl.edu.agh.logic.util.State.END){
-                    return;
+                    v.setParent(vertex);
+                    return true;
                 }
             }
             try {
@@ -37,5 +38,6 @@ public class BFS extends Algorithm{
                 e.printStackTrace();
             }
         }
+        return false;
     }
 }

@@ -49,5 +49,11 @@ public class Cell extends StackPane {
         this.setStyle("-fx-background-color: dodgerblue");
     }
 
+    public void updatePath(){
+        this.getStyleClass().clear();
+        this.setStyle("-fx-background-color: orange");
+    }
+
+
 
 }

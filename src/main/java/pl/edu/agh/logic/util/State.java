@@ -5,5 +5,6 @@ public enum State {
     INACTIVE,
     START,
     END,
-    VISITED
+    VISITED,
+    PATH
 }
