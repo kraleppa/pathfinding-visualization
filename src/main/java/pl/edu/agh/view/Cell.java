@@ -1,18 +1,19 @@
 package pl.edu.agh.view;
 
 import javafx.scene.layout.StackPane;
+import lombok.Getter;
+import pl.edu.agh.logic.util.Vertex;
 
 import java.awt.*;
 import java.beans.EventHandler;
 
+@Getter
 public class Cell extends StackPane {
-    int column;
-    int row;
+    private Vertex vertex;
 
-    public Cell(int column, int row) {
+    public Cell(Vertex vertex) {
         super();
-        this.column = column;
-        this.row = row;
+        this.vertex = vertex;
 
         this.setStyle("-fx-border-color: dodgerblue; -fx-border-width: 1px;");
         this.setOpacity(0.9);

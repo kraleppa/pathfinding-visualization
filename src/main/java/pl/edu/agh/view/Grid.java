@@ -1,15 +1,18 @@
 package pl.edu.agh.view;
 
 import javafx.scene.layout.Pane;
+import pl.edu.agh.logic.util.Vector2D;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Grid extends Pane {
-    int rows;
-    int columns;
+    private int rows;
+    private int columns;
+    private double width;
+    private double height;
 
-    double width;
-    double height;
-
-    Cell[][] cells;
+    private Map<Vector2D, Cell> cells = new HashMap<>();
 
     public Grid( int columns, int rows, double width, double height) {
 
@@ -17,18 +20,16 @@ public class Grid extends Pane {
         this.rows = rows;
         this.width = width;
         this.height = height;
-
-        cells = new Cell[rows][columns];
     }
 
-    public void add(Cell cell, int column, int row) {
+    public void add(Cell cell) {
 
-        cells[row][column] = cell;
+        cells.put(cell.getVertex().getPosition(), cell);
 
         double w = width / columns;
         double h = height / rows;
-        double x = w * column;
-        double y = h * row;
+        double x = w * cell.getVertex().getPosition().getX();
+        double y = h * cell.getVertex().getPosition().getY();
 
         cell.setLayoutX(x);
         cell.setLayoutY(y);

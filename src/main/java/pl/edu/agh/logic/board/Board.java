@@ -13,6 +13,10 @@ public class Board {
         this.graph = new Graph();
     }
 
+    public Board() {
+        this(10);
+    }
+
 //    public void constructGraph(){
 //        BoardBuilder boardBuilder = new StandardBoardBuilder(this);
 //        boardBuilder.constructArrayGraph();
