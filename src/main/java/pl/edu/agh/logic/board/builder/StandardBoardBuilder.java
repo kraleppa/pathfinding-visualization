@@ -15,8 +15,12 @@ public class StandardBoardBuilder implements BoardBuilder {
     public void constructGraph() {
         for (int x = 0; x < currentBoard.getBoardSize(); x++){
             for (int y = 0; y < currentBoard.getBoardSize(); y++){
+                currentBoard.getGraph().addVertex(new Vector2D(x, y));
+            }
+        }
+        for (int x = 0; x < currentBoard.getBoardSize(); x++){
+            for (int y = 0; y < currentBoard.getBoardSize(); y++){
                 Vector2D position1 = new Vector2D(x, y);
-                currentBoard.getGraph().addVertex(position1);
                 if (x + 1 < currentBoard.getBoardSize()){
                     currentBoard.getGraph().addEdge(position1, new Vector2D(x + 1, y));
                 }

@@ -10,11 +10,6 @@ import pl.edu.agh.logic.util.State;
 public class MouseGestures {
     //TO DO!
     private int doubleClickCount = 0;
-    private boolean canEdit;
-
-    public MouseGestures(boolean canEdit) {
-        this.canEdit = canEdit;
-    }
 
     public void makePaintable(Node node){
         node.setOnMousePressed(onMousePressedEventHandler);

@@ -15,10 +15,9 @@ public abstract class Algorithm {
             } else if (vertex.getState() == State.END){
                 this.stop = vertex;
             }
-
-            if (this.stop == null || this.start == null){
-                System.exit(1);             //EXCEPTIONS!!!!!
-            }
+        }
+        if (this.stop == null || this.start == null){
+            System.exit(69);             //EXCEPTIONS!!!!!
         }
     }
 }

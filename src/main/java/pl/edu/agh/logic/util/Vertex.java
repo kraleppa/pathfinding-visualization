@@ -17,7 +17,12 @@ public class Vertex {
 
     public void setState(State state) {
         this.state = state;
-        this.cell.updateVisited();
+        if (state == State.VISITED){
+            if (cell == null){
+                System.out.println("loool");
+            }
+            this.cell.updateVisited();
+        }
     }
 
     public void setCell(Cell cell) {

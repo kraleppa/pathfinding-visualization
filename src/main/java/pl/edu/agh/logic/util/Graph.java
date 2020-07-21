@@ -20,10 +20,11 @@ public class Graph {
         verticesMap.remove(mockVertex);
     }
 
-    public void addEdge(Vector2D position1, Vector2D position2){
-        Vertex mockVertex1 = new Vertex(position1);
-        Vertex mockVertex2 = new Vertex(position2);
+    private Optional<Vertex> getVertex(Vector2D position){
+        return this.verticesMap.keySet().stream().filter((vertex -> vertex.getPosition().equals(position))).findFirst();
+    }
 
-        verticesMap.get(mockVertex1).add(mockVertex2);
+    public void addEdge(Vector2D position1, Vector2D position2){
+        verticesMap.get(getVertex(position1).get()).add(getVertex(position2).get());
     }
 }
