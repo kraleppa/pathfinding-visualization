@@ -13,7 +13,7 @@ public class BoardScene extends Scene {
 
     private final Board board;
     private final Grid grid;
-    private Button start;
+    private final Button start;
 
     public BoardScene(StackPane root, double width, double height) {
         super(root, width, height, Color.WHITE);
@@ -29,13 +29,12 @@ public class BoardScene extends Scene {
         BoardBuilder boardBuilder = new StandardBoardBuilder(board);
         boardBuilder.constructGraph();
 
-        MouseGestures mg = new MouseGestures();
+        MouseGestures mouseGestures = new MouseGestures();
 
         this.board.getGraph().getVerticesMap().keySet().forEach(vertex -> {
             Cell cell = new Cell(vertex);
-            mg.makePaintable(cell);
+            mouseGestures.makePaintable(cell);
             grid.add(cell);
-
         });
 
         root.getChildren().addAll(grid, this.start);

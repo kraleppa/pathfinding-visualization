@@ -1,13 +1,8 @@
 package pl.edu.agh.logic.util;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 import pl.edu.agh.view.Cell;
-
 import java.util.Objects;
-import java.util.Observable;
 
 @Getter
 public class Vertex {
@@ -38,11 +33,6 @@ public class Vertex {
     public Vertex(Vector2D position) {
         this.position = position;
         this.state = State.ACTIVE;
-    }
-
-    @Override
-    public String toString() {
-        return position.toString() + "\n state: " + state.toString();
     }
 
     @Override

@@ -16,7 +16,7 @@ public class BFS extends Algorithm{
     }
 
     @Override
-    public boolean startAlgorithm() {
+    public void startAlgorithm() {
         while (!queue.isEmpty()){
             Vertex vertex = queue.poll();
 
@@ -29,7 +29,7 @@ public class BFS extends Algorithm{
 
                 if (v.getState() == pl.edu.agh.logic.util.State.END){
                     v.setParent(vertex);
-                    return true;
+                    return;
                 }
             }
             try {
@@ -38,6 +38,5 @@ public class BFS extends Algorithm{
                 e.printStackTrace();
             }
         }
-        return false;
     }
 }

@@ -1,12 +1,10 @@
 package pl.edu.agh.logic.util;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.*;
 
 @Getter
-@Setter
 public class Graph {
     private final Map<Vertex, ArrayList<Vertex>> verticesMap = new HashMap<>();
 

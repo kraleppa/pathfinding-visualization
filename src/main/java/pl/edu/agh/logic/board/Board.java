@@ -16,11 +16,4 @@ public class Board {
     public Board() {
         this(50);
     }
-
-//    public void constructGraph(){
-//        BoardBuilder boardBuilder = new StandardBoardBuilder(this);
-//        boardBuilder.constructArrayGraph();
-//    }
-
-
 }

@@ -9,7 +9,7 @@ import java.util.Observer;
 
 @Getter
 public class Cell extends StackPane {
-    private Vertex vertex;
+    private final Vertex vertex;
 
     public Cell(Vertex vertex) {
         super();

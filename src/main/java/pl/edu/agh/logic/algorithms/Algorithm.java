@@ -6,7 +6,6 @@ import pl.edu.agh.logic.util.Vertex;
 public abstract class Algorithm extends Thread{
     protected Vertex start;
     protected Vertex stop;
-    private boolean success = false;
 
     public Algorithm(Graph graph){
         for (Vertex vertex : graph.getVerticesMap().keySet()){
@@ -18,7 +17,8 @@ public abstract class Algorithm extends Thread{
             }
         }
         if (this.stop == null || this.start == null){
-            System.exit(69);             //EXCEPTIONS!!!!!
+            //TODO  Exception here!!!
+            System.exit(69);
         }
     }
 
@@ -27,22 +27,15 @@ public abstract class Algorithm extends Thread{
         while (currentVertex.getParent() != null){
             currentVertex.setState(pl.edu.agh.logic.util.State.PATH);
             currentVertex = currentVertex.getParent();
-
-
         }
     }
 
     @Override
     public void run() {
         super.run();
-        this.success = startAlgorithm();
+        startAlgorithm();
         backtrace();
     }
 
-
-
-
-    public abstract boolean startAlgorithm();
-
-
+    public abstract void startAlgorithm();
 }
