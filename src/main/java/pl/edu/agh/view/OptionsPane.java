@@ -10,10 +10,10 @@ import pl.edu.agh.logic.board.Board;
 
 public class OptionsPane extends VBox {
     private Button startButton;
+    private Button clearButton;
     private Board board;
     private MouseGestures mouseGestures;
     private boolean ready = false;
-    private Button clearButton;
 
     public OptionsPane(Board board, MouseGestures mouseGestures) {
         this.board = board;

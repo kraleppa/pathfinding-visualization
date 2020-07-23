@@ -5,7 +5,7 @@ import pl.edu.agh.logic.util.Vector2D;
 
 
 public class StandardBoardBuilder implements BoardBuilder {
-    private final Board currentBoard;
+    protected final Board currentBoard;
 
     public StandardBoardBuilder(Board board) {
         this.currentBoard = board;

@@ -5,6 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import pl.edu.agh.logic.board.Board;
 import pl.edu.agh.logic.board.builder.BoardBuilder;
+import pl.edu.agh.logic.board.builder.NineTilesBoardBuilder;
 import pl.edu.agh.logic.board.builder.StandardBoardBuilder;
 
 public class BoardScene extends Scene {
@@ -13,7 +14,7 @@ public class BoardScene extends Scene {
         Board board = new Board();
         Grid grid = new Grid(board.getBoardSize(), board.getBoardSize(), width - 50, height - 50);
 
-        BoardBuilder boardBuilder = new StandardBoardBuilder(board);
+        BoardBuilder boardBuilder = new NineTilesBoardBuilder(board);
         boardBuilder.constructGraph();
 
         MouseGestures mouseGestures = new MouseGestures();

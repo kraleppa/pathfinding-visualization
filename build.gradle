@@ -29,3 +29,9 @@ javafx {
 }
 
 mainClassName = 'pl.edu.agh.Main'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'pl.edu.agh.Main'
+    }
+}
