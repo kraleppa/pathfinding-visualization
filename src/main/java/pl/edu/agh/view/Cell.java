@@ -1,5 +1,6 @@
 package pl.edu.agh.view;
 
+import javafx.application.Platform;
 import javafx.scene.layout.StackPane;
 import lombok.Getter;
 import pl.edu.agh.logic.util.State;
@@ -44,13 +45,10 @@ public class Cell extends StackPane {
     }
 
     public void updateVisited(){
-        try{
+        Platform.runLater(() -> {
             this.getStyleClass().clear();
             this.setStyle("-fx-background-color: dodgerblue");
-        } catch (ConcurrentModificationException e){
-            this.setStyle("-fx-background-color: red");
-        }
-
+        });
 
     }
 

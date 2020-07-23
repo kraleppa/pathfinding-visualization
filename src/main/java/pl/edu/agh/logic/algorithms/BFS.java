@@ -1,5 +1,6 @@
 package pl.edu.agh.logic.algorithms;
 
+import javafx.application.Platform;
 import pl.edu.agh.logic.util.Graph;
 import pl.edu.agh.logic.util.Vertex;
 import java.util.LinkedList;
