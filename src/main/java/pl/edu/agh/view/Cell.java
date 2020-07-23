@@ -16,8 +16,7 @@ public class Cell extends StackPane {
         this.vertex = vertex;
         this.vertex.setCell(this);
 
-        this.setStyle("-fx-border-color: black; -fx-border-width: 1px;");
-        this.setOpacity(0.9);
+        this.setStyle("-fx-border-color: black; -fx-border-width: 1px; -fx-background-color: white");
     }
 
     public void setInactive(){
@@ -52,6 +51,11 @@ public class Cell extends StackPane {
     public void updatePath(){
         this.getStyleClass().clear();
         this.setStyle("-fx-background-color: orange");
+    }
+
+    public void updateActive(){
+        this.getStyleClass().clear();
+        this.setStyle("-fx-border-color: black; -fx-border-width: 1px; -fx-background-color: white");
     }
 
 

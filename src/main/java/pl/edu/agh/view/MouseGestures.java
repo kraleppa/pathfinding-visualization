@@ -4,12 +4,15 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import lombok.Getter;
+import lombok.Setter;
 import pl.edu.agh.logic.util.State;
 
-
+@Setter
 public class MouseGestures {
-    //TO DO!
-    private int doubleClickCount = 0;
+    public boolean startIsPresent = false;
+    public boolean endIsPresent = false;
+    public boolean canModify = true;
 
     public void makePaintable(Node node){
         node.setOnMousePressed(onMousePressedEventHandler);
@@ -17,28 +20,30 @@ public class MouseGestures {
 
     EventHandler<MouseEvent> onMousePressedEventHandler = event -> {
         Cell cell = (Cell) event.getSource();
+        if (this.canModify){
+            if(event.getButton().equals(MouseButton.PRIMARY)){
+                if(event.getClickCount() == 2){
+                    if (!startIsPresent){
+                        cell.setStart();
+                        startIsPresent = true;
+                    } else if (!endIsPresent){
+                        cell.setEnd();
+                        endIsPresent = true;
+                    }
 
-        if(event.getButton().equals(MouseButton.PRIMARY)){
-            if(event.getClickCount() == 2){
-
-                //TO DO! //////////////////////////////
-
-                if (doubleClickCount == 0){
-                    cell.setStart();
+                } else {
+                    if (cell.getVertex().getState() == State.ACTIVE){
+                        cell.setInactive();
+                    }
                 }
-                if (doubleClickCount == 1){
-                    cell.setEnd();
-                }
-                doubleClickCount++;
-
-                ////////////////////////////////////////
             } else {
-                cell.setInactive();
+                if (cell.getVertex().getState() == State.START){
+                    startIsPresent = false;
+                } else if (cell.getVertex().getState() == State.END){
+                    endIsPresent = false;
+                }
+                cell.setActive();
             }
-        } else {
-            cell.setActive();
         }
-
-
     };
 }

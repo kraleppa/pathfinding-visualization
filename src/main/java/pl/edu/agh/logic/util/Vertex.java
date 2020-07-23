@@ -11,7 +11,7 @@ public class Vertex {
     private State state;
     private Vertex parent;
 
-    public void setState(State state) {
+    public synchronized void setState(State state) {
         this.state = state;
         if (state == State.VISITED){
             this.cell.updateVisited();
@@ -19,6 +19,10 @@ public class Vertex {
 
         if (state == State.PATH){
             this.cell.updatePath();
+        }
+
+        if (state == State.ACTIVE){
+            this.cell.updateActive();
         }
     }
 

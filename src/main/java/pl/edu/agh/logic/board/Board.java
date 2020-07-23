@@ -2,6 +2,7 @@ package pl.edu.agh.logic.board;
 
 import lombok.Getter;
 import pl.edu.agh.logic.util.Graph;
+import pl.edu.agh.logic.util.State;
 
 @Getter
 public class Board {
@@ -15,5 +16,9 @@ public class Board {
 
     public Board() {
         this(50);
+    }
+
+    public void resetGraph(){
+        graph.getVerticesMap().keySet().forEach(vertex -> vertex.setState(State.ACTIVE));
     }
 }
