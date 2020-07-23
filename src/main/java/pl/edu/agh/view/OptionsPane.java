@@ -3,7 +3,6 @@ package pl.edu.agh.view;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import pl.edu.agh.logic.algorithms.Algorithm;
 import pl.edu.agh.logic.algorithms.BFS;
@@ -11,7 +10,6 @@ import pl.edu.agh.logic.board.Board;
 
 public class OptionsPane extends VBox {
     private Button startButton;
-    private Button clearButton;
     private Board board;
     private MouseGestures mouseGestures;
     private boolean ready = false;
@@ -22,12 +20,12 @@ public class OptionsPane extends VBox {
         this.startButton = new Button("Save");
         this.startButton.setOnAction(onStartSaveClickEvent);
 
-        this.clearButton = new Button("Clear");
-        this.clearButton.setOnAction(onClearClickEvent);
+        Button clearButton = new Button("Clear");
+        clearButton.setOnAction(onClearClickEvent);
 
 
 
-        this.getChildren().addAll(this.startButton, this.clearButton);
+        this.getChildren().addAll(this.startButton, clearButton);
 
         this.setStyle("-fx-padding: 10; -fx-alignment: top-center");
         this.setSpacing(10);

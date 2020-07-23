@@ -1,13 +1,8 @@
 package pl.edu.agh.view;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import pl.edu.agh.logic.algorithms.BFS;
 import pl.edu.agh.logic.board.Board;
 import pl.edu.agh.logic.board.builder.BoardBuilder;
 import pl.edu.agh.logic.board.builder.StandardBoardBuilder;

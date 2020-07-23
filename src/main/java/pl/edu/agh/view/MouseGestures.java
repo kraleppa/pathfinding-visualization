@@ -4,12 +4,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import lombok.Getter;
 import lombok.Setter;
 import pl.edu.agh.logic.util.State;
 
 @Setter
 public class MouseGestures {
+    //idk why getters here are not working ;-;
     public boolean startIsPresent = false;
     public boolean endIsPresent = false;
     public boolean canModify = true;

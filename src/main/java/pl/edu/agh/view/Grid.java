@@ -9,7 +9,6 @@ public class Grid extends Pane {
     private final double height;
 
     public Grid( int columns, int rows, double width, double height) {
-
         this.columns = columns;
         this.rows = rows;
         this.width = width;
