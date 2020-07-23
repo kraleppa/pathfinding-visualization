@@ -13,6 +13,7 @@ public class OptionsPane extends VBox {
     private Board board;
     private MouseGestures mouseGestures;
     private boolean ready = false;
+    private Button clearButton;
 
     public OptionsPane(Board board, MouseGestures mouseGestures) {
         this.board = board;
@@ -20,10 +21,8 @@ public class OptionsPane extends VBox {
         this.startButton = new Button("Save");
         this.startButton.setOnAction(onStartSaveClickEvent);
 
-        Button clearButton = new Button("Clear");
+        this.clearButton = new Button("Clear");
         clearButton.setOnAction(onClearClickEvent);
-
-
 
         this.getChildren().addAll(this.startButton, clearButton);
 
@@ -39,9 +38,23 @@ public class OptionsPane extends VBox {
                 this.mouseGestures.setCanModify(false);
             }
         } else {
+            this.clearButton.setVisible(false);
             this.startButton.setVisible(false);
             Algorithm algorithm = new BFS(this.board.getGraph());
             algorithm.start();
+            Thread waitForEndThread = new Thread(() -> {
+                try {
+                    algorithm.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (this){
+                    this.clearButton.setVisible(true);
+                }
+            });
+
+            waitForEndThread.start();
+
         }
     };
 
