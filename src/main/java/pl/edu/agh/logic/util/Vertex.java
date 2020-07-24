@@ -1,6 +1,7 @@
 package pl.edu.agh.logic.util;
 
 import lombok.Getter;
+import lombok.Setter;
 import pl.edu.agh.view.Cell;
 import java.util.Objects;
 
@@ -10,6 +11,8 @@ public class Vertex {
     private Cell cell;
     private State state;
     private Vertex parent;
+    @Setter
+    private Double distance = null;
 
     public void setState(State state) {
         this.state = state;

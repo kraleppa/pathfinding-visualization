@@ -4,10 +4,12 @@ import pl.edu.agh.logic.util.Graph;
 import pl.edu.agh.logic.util.Vertex;
 
 public abstract class Algorithm extends Thread{
+    protected final Graph graph;
     protected Vertex start;
     protected Vertex stop;
 
     public Algorithm(Graph graph){
+        this.graph = graph;
         for (Vertex vertex : graph.getVerticesMap().keySet()){
             if (vertex.getState() == pl.edu.agh.logic.util.State.START){
                 this.start = vertex;

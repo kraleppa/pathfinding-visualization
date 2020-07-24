@@ -17,4 +17,8 @@ public class Vector2D {
     public String toString() {
         return ("(" + x + " ," + y + ")");
     }
+
+    public double distance(Vector2D other){
+        return (Math.sqrt(Math.pow(this.x - other.getX(), 2) + Math.pow(this.y - other.getY(), 2)));
+    }
 }

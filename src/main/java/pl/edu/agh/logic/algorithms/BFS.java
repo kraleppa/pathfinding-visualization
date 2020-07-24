@@ -7,12 +7,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BFS extends Algorithm{
-    private final Graph graph;
     private final Queue<Vertex> queue = new LinkedList<>();
 
     public BFS(Graph graph) {
         super(graph);
-        this.graph = graph;
         queue.add(start);
     }
 
@@ -34,7 +32,7 @@ public class BFS extends Algorithm{
                 }
             }
             try {
-                Thread.sleep(1);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

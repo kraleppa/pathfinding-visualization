@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import pl.edu.agh.logic.algorithms.Algorithm;
 import pl.edu.agh.logic.algorithms.BFS;
+import pl.edu.agh.logic.algorithms.Dijkstra;
 import pl.edu.agh.logic.board.Board;
 
 public class OptionsPane extends VBox {
@@ -40,7 +41,7 @@ public class OptionsPane extends VBox {
         } else {
             this.clearButton.setVisible(false);
             this.startButton.setVisible(false);
-            Algorithm algorithm = new BFS(this.board.getGraph());
+            Algorithm algorithm = new Dijkstra(this.board.getGraph());
             algorithm.start();
             Thread waitForEndThread = new Thread(() -> {
                 try {
