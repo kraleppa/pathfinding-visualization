@@ -98,7 +98,7 @@ public class OptionsPane extends VBox {
 
     EventHandler<ActionEvent> onClearClickEvent = event -> {
         this.listView.setVisible(true);
-        this.board.resetGraph();
+        this.board.clearGraph();
         this.mouseGestures.setCanModify(true);
         this.startButton.setVisible(true);
         this.startButton.setText("Save");

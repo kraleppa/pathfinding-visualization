@@ -18,7 +18,7 @@ public class Board {
         this(50);
     }
 
-    public void resetGraph(){
+    public void clearGraph(){
         graph.getVerticesMap().keySet().forEach(vertex -> vertex.setState(State.ACTIVE));
     }
 }

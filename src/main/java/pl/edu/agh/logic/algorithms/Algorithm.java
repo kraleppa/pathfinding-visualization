@@ -6,7 +6,7 @@ import pl.edu.agh.logic.util.Vertex;
 public abstract class Algorithm extends Thread{
     protected final Graph graph;
     protected Vertex start;
-    protected Vertex stop;
+    protected Vertex end;
 
     public Algorithm(Graph graph){
         this.graph = graph;
@@ -15,17 +15,17 @@ public abstract class Algorithm extends Thread{
                 this.start = vertex;
                 this.start.setParent(null);
             } else if (vertex.getState() == pl.edu.agh.logic.util.State.END){
-                this.stop = vertex;
+                this.end = vertex;
             }
         }
-        if (this.stop == null || this.start == null){
+        if (this.end == null || this.start == null){
             //TODO  Exception here!!!
             System.exit(69);
         }
     }
 
     public void backtrace(){
-        Vertex currentVertex = this.stop.getParent();
+        Vertex currentVertex = this.end.getParent();
         while (currentVertex.getParent() != null){
             currentVertex.setState(pl.edu.agh.logic.util.State.PATH);
             currentVertex = currentVertex.getParent();
