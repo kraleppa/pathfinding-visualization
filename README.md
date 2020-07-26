@@ -17,7 +17,7 @@ This is a desktop application for pathfinding algorithms visualization.
 #### Dijkstra algorithm
 ![](img/dijkstra.gif)
 
-Demo is much more lagged than application.
+##### Demo is much more lagged than application.
 
 ## Contributors :turtle:
 <table>
