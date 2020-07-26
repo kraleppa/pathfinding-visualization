@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
+import pl.edu.agh.logic.algorithms.AStar;
 import pl.edu.agh.logic.algorithms.Algorithm;
 import pl.edu.agh.logic.algorithms.BFS;
 import pl.edu.agh.logic.algorithms.Dijkstra;
@@ -35,7 +36,7 @@ public class OptionsPane extends VBox {
         clearButton.setOnAction(onClearClickEvent);
 
         this.listView = new ListView<>();
-        listView.getItems().addAll("BFS", "Dijkstra");
+        listView.getItems().addAll("BFS", "Dijkstra", "A*");
 
         listView.getSelectionModel().getSelectedItem();
 
@@ -45,6 +46,7 @@ public class OptionsPane extends VBox {
                 switch (newValue){
                     case "BFS": selectedAlgorithm = AlgorithmEnum.BFS; break;
                     case "Dijkstra": selectedAlgorithm = AlgorithmEnum.DIJKSTRA; break;
+                    case "A*": selectedAlgorithm = AlgorithmEnum.ASTAR; break;
                 }
             }
         });
@@ -73,6 +75,7 @@ public class OptionsPane extends VBox {
             switch (this.selectedAlgorithm){
                 case BFS: algorithm = new BFS(this.board.getGraph()); break;
                 case DIJKSTRA: algorithm = new Dijkstra(this.board.getGraph()); break;
+                case ASTAR: algorithm = new AStar(this.board.getGraph()); break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + this.selectedAlgorithm);
             }

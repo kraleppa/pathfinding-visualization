@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Dijkstra extends Algorithm{
-    private Set<Vertex> unvisited = new HashSet<>();
+    protected Set<Vertex> unvisited = new HashSet<>();
 
     public Vertex getSmallestDistance(){
         return this.unvisited.stream()
