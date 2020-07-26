@@ -1,4 +1,4 @@
-package pl.edu.agh.view;
+package pl.edu.agh.view.util;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -6,6 +6,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import lombok.Setter;
 import pl.edu.agh.logic.util.State;
+import pl.edu.agh.view.Cell;
 
 @Setter
 public class MouseGestures {

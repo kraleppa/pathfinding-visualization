@@ -53,8 +53,10 @@ public class Cell extends StackPane {
     }
 
     public void updatePath(){
-        this.getStyleClass().clear();
-        this.setStyle("-fx-background-color: orange");
+        Platform.runLater(() -> {
+            this.getStyleClass().clear();
+            this.setStyle("-fx-background-color: orange");
+        });
     }
 
     public void updateActive(){

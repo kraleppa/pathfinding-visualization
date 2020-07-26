@@ -6,7 +6,8 @@ import javafx.scene.paint.Color;
 import pl.edu.agh.logic.board.Board;
 import pl.edu.agh.logic.board.builder.BoardBuilder;
 import pl.edu.agh.logic.board.builder.NineTilesBoardBuilder;
-import pl.edu.agh.logic.board.builder.StandardBoardBuilder;
+import pl.edu.agh.view.util.MouseGestures;
+
 
 public class BoardScene extends Scene {
     public BoardScene(Pane root, double width, double height) {

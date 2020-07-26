@@ -1,4 +1,4 @@
-package pl.edu.agh.view;
+package pl.edu.agh.view.util;
 
 public enum AlgorithmEnum {
     BFS,

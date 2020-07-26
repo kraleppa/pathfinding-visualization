@@ -3,11 +3,9 @@ package pl.edu.agh.view;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import pl.edu.agh.logic.algorithms.AStar;
@@ -15,8 +13,8 @@ import pl.edu.agh.logic.algorithms.Algorithm;
 import pl.edu.agh.logic.algorithms.BFS;
 import pl.edu.agh.logic.algorithms.Dijkstra;
 import pl.edu.agh.logic.board.Board;
-
-import java.util.List;
+import pl.edu.agh.view.util.AlgorithmEnum;
+import pl.edu.agh.view.util.MouseGestures;
 
 public class OptionsPane extends VBox {
     private Button startButton;
