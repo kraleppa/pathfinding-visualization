@@ -21,4 +21,12 @@ public class Board {
     public void clearGraph(){
         graph.getVerticesMap().keySet().forEach(vertex -> vertex.setState(State.ACTIVE));
     }
+
+    public void resetGraph(){
+        graph.getVerticesMap().keySet().forEach(vertex -> {
+            if (vertex.getState() != State.INACTIVE){
+                vertex.setState(State.ACTIVE);
+            }
+        });
+    }
 }

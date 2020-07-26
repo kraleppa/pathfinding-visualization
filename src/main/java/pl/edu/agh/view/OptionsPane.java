@@ -1,5 +1,6 @@
 package pl.edu.agh.view;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -37,6 +38,7 @@ public class OptionsPane extends VBox {
 
         this.listView = new ListView<>();
         listView.getItems().addAll("BFS", "Dijkstra", "A*");
+        this.listView.setPrefHeight(80);
 
         listView.getSelectionModel().getSelectedItem();
 
@@ -58,6 +60,11 @@ public class OptionsPane extends VBox {
         this.setStyle("-fx-padding: 10; -fx-alignment: top-center");
         this.setSpacing(10);
     }
+
+    EventHandler<ActionEvent> resetGraph = event -> {
+        this.board.resetGraph();
+        this.refresh();
+    };
 
     EventHandler<ActionEvent> onStartSaveClickEvent = event -> {
         if (!ready){
@@ -87,7 +94,13 @@ public class OptionsPane extends VBox {
                     e.printStackTrace();
                 }
                 synchronized (this){
-                    this.clearButton.setVisible(true);
+                    Platform.runLater(() -> {
+                        this.clearButton.setVisible(true);
+                        this.startButton.setText("Reset");
+                        this.startButton.setOnAction(resetGraph);
+                        this.startButton.setVisible(true);
+                    });
+
                 }
             });
 
@@ -97,13 +110,19 @@ public class OptionsPane extends VBox {
     };
 
     EventHandler<ActionEvent> onClearClickEvent = event -> {
-        this.listView.setVisible(true);
         this.board.clearGraph();
+        this.refresh();
+    };
+
+    public void refresh(){
+        this.listView.setVisible(true);
         this.mouseGestures.setCanModify(true);
-        this.startButton.setVisible(true);
         this.startButton.setText("Save");
+        this.startButton.setOnAction(onStartSaveClickEvent);
         this.ready = false;
         this.mouseGestures.setEndIsPresent(false);
         this.mouseGestures.setStartIsPresent(false);
-    };
+    }
+
+
 }
