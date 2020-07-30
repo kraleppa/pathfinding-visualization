@@ -3,6 +3,8 @@ package pl.edu.agh.logic.algorithms;
 import javafx.application.Platform;
 import pl.edu.agh.logic.util.Graph;
 import pl.edu.agh.logic.util.Vertex;
+
+import java.awt.geom.IllegalPathStateException;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -37,5 +39,6 @@ public class BFS extends Algorithm{
                 e.printStackTrace();
             }
         }
+        throw new IllegalPathStateException("Path not found!");
     }
 }

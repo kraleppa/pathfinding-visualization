@@ -3,6 +3,7 @@ package pl.edu.agh.logic.algorithms;
 import pl.edu.agh.logic.util.Graph;
 import pl.edu.agh.logic.util.Vertex;
 
+import java.awt.geom.IllegalPathStateException;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -40,6 +41,9 @@ public class Dijkstra extends Algorithm{
         while (this.unvisited.size() != 0){
             Vertex currentVertex = getSmallestDistance();
             unvisited.remove(currentVertex);
+            if (currentVertex.getDistance() == Double.MAX_VALUE){
+                throw new IllegalPathStateException("Path not found!");
+            }
             if (currentVertex.getState().equals(pl.edu.agh.logic.util.State.END)){
                 return;
             }
@@ -58,5 +62,6 @@ public class Dijkstra extends Algorithm{
                 e.printStackTrace();
             }
         }
+        throw new IllegalPathStateException("Path not found!");
     }
 }

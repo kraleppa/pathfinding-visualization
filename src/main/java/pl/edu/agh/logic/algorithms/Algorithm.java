@@ -3,6 +3,8 @@ package pl.edu.agh.logic.algorithms;
 import pl.edu.agh.logic.util.Graph;
 import pl.edu.agh.logic.util.Vertex;
 
+import java.awt.geom.IllegalPathStateException;
+
 public abstract class Algorithm extends Thread{
     protected final Graph graph;
     protected Vertex start;
@@ -34,7 +36,11 @@ public abstract class Algorithm extends Thread{
     @Override
     public void run() {
         super.run();
-        startAlgorithm();
+        try {
+            startAlgorithm();
+        } catch (IllegalPathStateException e){
+            return;
+        }
         backtrace();
     }
 
