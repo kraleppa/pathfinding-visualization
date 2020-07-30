@@ -4,25 +4,24 @@ import pl.edu.agh.logic.util.Graph;
 import pl.edu.agh.logic.util.Vertex;
 
 import java.awt.geom.IllegalPathStateException;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-public class BFS extends Algorithm{
-    private final Queue<Vertex> queue = new LinkedList<>();
+public class DFS extends Algorithm{
+    private final Stack<Vertex> stack = new Stack<>();
 
-    public BFS(Graph graph) {
+    public DFS(Graph graph) {
         super(graph);
-        queue.add(start);
+        stack.add(start);
     }
 
     @Override
     public void startAlgorithm() {
-        while (!queue.isEmpty()){
-            Vertex vertex = queue.poll();
+        while (!stack.isEmpty()){
+            Vertex vertex = stack.pop();
 
             for (Vertex v : graph.getVerticesMap().get(vertex)) {
                 if (v.getState() == pl.edu.agh.logic.util.State.ACTIVE){
-                    queue.add(v);
+                    stack.push(v);
                     v.setState(pl.edu.agh.logic.util.State.VISITED);
                     v.setParent(vertex);
                 }

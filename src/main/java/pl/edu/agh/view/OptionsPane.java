@@ -8,10 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
-import pl.edu.agh.logic.algorithms.AStar;
-import pl.edu.agh.logic.algorithms.Algorithm;
-import pl.edu.agh.logic.algorithms.BFS;
-import pl.edu.agh.logic.algorithms.Dijkstra;
+import pl.edu.agh.logic.algorithms.*;
 import pl.edu.agh.logic.board.Board;
 import pl.edu.agh.view.util.AlgorithmEnum;
 import pl.edu.agh.view.util.MouseGestures;
@@ -35,8 +32,8 @@ public class OptionsPane extends VBox {
         clearButton.setOnAction(onClearClickEvent);
 
         this.listView = new ListView<>();
-        listView.getItems().addAll("BFS", "Dijkstra", "A*");
-        this.listView.setPrefHeight(80);
+        listView.getItems().addAll("BFS", "DFS", "Dijkstra", "A*", "Random Walk");
+        this.listView.setPrefHeight(133);
 
         listView.getSelectionModel().getSelectedItem();
 
@@ -47,6 +44,8 @@ public class OptionsPane extends VBox {
                     case "BFS": selectedAlgorithm = AlgorithmEnum.BFS; break;
                     case "Dijkstra": selectedAlgorithm = AlgorithmEnum.DIJKSTRA; break;
                     case "A*": selectedAlgorithm = AlgorithmEnum.ASTAR; break;
+                    case "DFS": selectedAlgorithm = AlgorithmEnum.DFS; break;
+                    case "Random Walk": selectedAlgorithm = AlgorithmEnum.RANDOM; break;
                 }
             }
         });
@@ -81,6 +80,8 @@ public class OptionsPane extends VBox {
                 case BFS: algorithm = new BFS(this.board.getGraph()); break;
                 case DIJKSTRA: algorithm = new Dijkstra(this.board.getGraph()); break;
                 case ASTAR: algorithm = new AStar(this.board.getGraph()); break;
+                case DFS: algorithm = new DFS(this.board.getGraph()); break;
+                case RANDOM: algorithm = new RandomWalk(this.board.getGraph()); break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + this.selectedAlgorithm);
             }
