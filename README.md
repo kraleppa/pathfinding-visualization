@@ -9,6 +9,8 @@
 ## Project Description
 This is a desktop application for pathfinding algorithms visualization.
 
+![](img/menu.png)
+
 ## Showcase
 
 #### A* algorithm
