@@ -6,8 +6,6 @@ import lombok.Getter;
 import pl.edu.agh.logic.util.State;
 import pl.edu.agh.logic.util.Vertex;
 
-import java.util.ConcurrentModificationException;
-
 @Getter
 public class Cell extends StackPane {
     private final Vertex vertex;

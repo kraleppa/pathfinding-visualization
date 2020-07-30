@@ -19,8 +19,7 @@ public abstract class Algorithm extends Thread{
             }
         }
         if (this.end == null || this.start == null){
-            //TODO  Exception here!!!
-            System.exit(69);
+            throw new IllegalStateException("Start or End vertex does not exist");
         }
     }
 

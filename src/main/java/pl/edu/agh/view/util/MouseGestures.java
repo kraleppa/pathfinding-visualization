@@ -10,7 +10,6 @@ import pl.edu.agh.view.Cell;
 
 @Setter
 public class MouseGestures {
-    //idk why getters here are not working ;-;
     public boolean startIsPresent = false;
     public boolean endIsPresent = false;
     public boolean canModify = true;
